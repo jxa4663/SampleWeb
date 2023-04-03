@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Say Hello</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
 <body>
-
-<h2>Alternative text</h2>
-
-<p>The alt attribute should reflect the image content, so users who cannot see the image get an understanding of what the image contains:</p>
-
-<img src="img_chania.jpg" alt="Flowers in Chania" width="460" height="345">
-
+    <img src="https://raw.githubusercontent.com/MariyaSha/SimpleGreetingApp/main/logo.png">
+    <br>
+    <form action="greet" method="post">
+        {% for message in get_flashed_messages() %}
+             <p>{{ message }}</p>
+         {% endfor %}
+        <br>
+        <input type="text" name="name_input">
+        <br>
+        <input type="submit" value="GREET" id="greet">
+    </form>
 </body>
 </html>
